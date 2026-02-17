@@ -26,6 +26,12 @@ export default defineConfig({
 			}
 		},
 		{
+			name: 'Mobile Chrome Landscape',
+			use: {
+				...devices['Pixel 7 Landscape']
+			}
+		},
+		{
 			name: 'Common Tablet',
 			use: {
 				...devices['iPad Pro 11 landscape']
