@@ -21,6 +21,13 @@ exporters:
   debug:
     verbosity: detailed
 
+processors:
+  transform/logs-streams:
+    log_statements:
+      - context: resource
+        statements:
+          - set(attributes["elasticsearch.index"], "logs")
+
 service:
   pipelines:
     traces:
@@ -31,6 +38,7 @@ service:
       exporters: [debug] 
     logs:
       receivers: [otlp]
+      processors: [transform/logs-streams]
       exporters: [otlp/elastic] 
     metrics:
       receivers: [otlp]
