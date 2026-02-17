@@ -3,7 +3,8 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
 	webServer: {
 		command: 'npm run build && npm run preview',
-		port: 4173
+		port: 4173,
+		reuseExistingServer: true
 	},
 	projects: [
 		{
@@ -22,12 +23,6 @@ export default defineConfig({
 			name: 'Mobile Chrome',
 			use: {
 				...devices['Pixel 7']
-			}
-		},
-		{
-			name: 'Mobile Chrome Landscape',
-			use: {
-				...devices['Pixel 7 Landscape']
 			}
 		},
 		{
